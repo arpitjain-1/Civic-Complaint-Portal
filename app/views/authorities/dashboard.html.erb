@@ -1,0 +1,71 @@
+<!-- Main dashboard container -->
+<main class="dashboard-container">
+    <!-- Sidebar navigation -->
+    <aside class="sidebar">
+        <nav class="sidebar-menu">
+            <%= link_to '#', class: 'menu-item active' do %>
+                <i class='bx bx-list-ul'></i> <span>Home</span>
+            <% end %>
+            <%= link_to complaints_path, class: 'menu-item' do %>
+                <i class='bx bx-list-ul'></i> <span>All Complaints</span>
+            <% end %>
+            <%= link_to pending_complaints_path, class: 'menu-item' do %>
+                <i class='bx bx-time-five'></i> <span>Pending Complaints</span>
+            <% end %>
+            <%= link_to authority_profile_path, class: 'menu-item' do %>
+                <i class='bx bx-user'></i> <span>Profile</span>
+            <% end %>
+            <%= link_to edit_authority_profile_path, class: 'menu-item' do %>
+                <i class='bx bx-edit'></i> <span>Edit Profile</span>
+            <% end %>
+        </nav>
+    </aside>
+
+    <!-- Content area -->
+    <section class="content-area">
+        <h1>Welcome, <%= @user.email %></h1>
+
+        <!-- Statistics Section -->
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Total Complaints</h3>
+                <p><%= @total_complaints %></p>
+            </div>
+            <div class="stat-card">
+                <h3>Pending Complaints</h3>
+                <p><%= @pending_complaints %></p>
+            </div>
+            <div class="stat-card">
+                <h3>Resolved Complaints</h3>
+                <p><%= @resolved_complaints %></p>
+            </div>
+        </div>
+
+        <br>
+        <!-- Recent Complaints Section -->
+        <div class="recent-complaints">
+            <h2>Recent Complaints</h2>
+            <table border="2px">
+                <thead>
+                    <tr>
+                        <th>Complaint ID</th>
+                        <th>Type</th>
+                        <th>Date Submitted</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <% @recent_complaints.each do |complaint| %>
+                        <tr>
+                            <td><%= complaint.id %></td>
+                            <td><%= complaint.complaint_type&.name || 'N/A' %></td>
+                            <td><%= complaint.created_at.strftime('%Y-%m-%d') %></td>
+                            <td><%= complaint.status.capitalize %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>

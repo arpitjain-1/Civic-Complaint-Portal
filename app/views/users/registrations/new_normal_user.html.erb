@@ -1,0 +1,87 @@
+<div class="base">
+  <div class="container">
+    <!-- Container box -->
+
+    <div class="content">
+      <!-- Left side content -->
+
+      <div class="text-sci">
+        <h2>Sign Up<br />Here</h2>
+      </div>
+
+      <div class="text-sci2">
+        <h2>To Access The Page</h2>
+
+        <div class="social-icons">
+          <%= link_to '#', class: 'bx bxl-linkedin' do %>
+            <i class="bx bxl-linkedin"></i>
+          <% end %>
+          <%= link_to '#', class: 'bx bxl-instagram' do %>
+            <i class="bx bxl-instagram"></i>
+          <% end %>
+          <%= link_to '#', class: 'bx bxl-facebook' do %>
+            <i class="bx bxl-facebook"></i>
+          <% end %>
+          <%= link_to '#', class: 'bx bxl-twitter' do %>
+            <i class="bx bxl-twitter"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="logreg-box">
+      <div class="form-box register">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <h2>Sign Up</h2>
+
+          <!-- Error messages -->
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <!-- Name Field -->
+          <div class="input-box">
+            <span class="icon">
+              <i class="bx bxs-user"></i>
+            </span>
+            <%= f.text_field :name, autofocus: true, required: true, placeholder: "Your Name", class: "input-field" %>
+          </div>
+
+          <!-- Email Field -->
+          <div class="input-box">
+            <span class="icon">
+              <i class="bx bxs-envelope"></i>
+            </span>
+            <%= f.email_field :email, required: true, autocomplete: "email", placeholder: "Your Email", class: "input-field" %>
+          </div>
+
+          <!-- Password Field -->
+          <div class="input-box">
+            <span class="icon">
+              <i class="bx bxs-lock-alt"></i>
+            </span>
+            <%= f.password_field :password, required: true, autocomplete: "new-password", placeholder: "Your Password", class: "input-field" %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+          </div>
+
+          <!-- Password Confirmation Field -->
+          <div class="input-box">
+            <span class="icon">
+              <i class="bx bxs-lock"></i>
+            </span>
+            <%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", placeholder: "Confirm Password", class: "input-field" %>
+          </div>
+
+          <%= f.submit "Sign Up", class: "btn" %>
+
+          <div class="login-register">
+            <p>
+              Already have an account?
+              <%= link_to 'Sign In', new_normal_user_registration_path, class: 'register-link' %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+    <!-- Main dashboard container -->
+    <main class="dashboard-container">
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <%= link_to 'authority_dashboard_path', class: 'menu-item' do %>
+                    <i class='bx bx-list-ul'></i> <span>Home</span>
+                <% end %>
+                <%= link_to complaints_path, class: 'menu-item' do %>
+                    <i class='bx bx-list-ul'></i> <span>All Complaints</span>
+                <% end %>
+                <%= link_to pending_complaints_path, class: 'menu-item' do %>
+                    <i class='bx bx-time-five'></i> <span>Pending Complaints</span>
+                <% end %>
+                <%= link_to authority_profile_path, class: 'menu-item active' do %>
+                    <i class='bx bx-user'></i> <span>Profile</span>
+                <% end %>
+                <%= link_to edit_authority_profile_path, class: 'menu-item' do %>
+                    <i class='bx bx-edit active'></i> <span>Edit Profile</span>
+                <% end %>
+            </nav>
+        </aside>
+
+        <!-- Content area -->
+        <section class="content-area spcl">
+            <h1>Your Profile</h1>
+
+            <div class="card">
+                <div class="card-body">
+                    <p><strong>Name:</strong> <%= @authority.name %></p>
+                    <p><strong>Email:</strong> <%= @authority.email %></p>
+                    <p><strong>Role:</strong> <%= @authority.role.titleize %></p>
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <%= link_to 'Edit Profile', edit_normal_user_profile_path, class: "btn btn-primary" %>
+                <%= link_to 'Back to Dashboard', normal_user_dashboard_path, class: "btn btn-secondary" %>
+            </div>
+        </section>
+    </main>

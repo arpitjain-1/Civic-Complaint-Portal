@@ -1,0 +1,33 @@
+    <!-- Main dashboard container -->
+    <main class="dashboard-container">
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <%= link_to '<i class="bx bx-home-circle"></i> <span>Home</span>'.html_safe, root_path, class: 'menu-item active' %>
+                <%= link_to '<i class="bx bx-plus-circle"></i> <span>Create Complaint</span>'.html_safe, new_complaint_path, class: 'menu-item' %>
+                <%= link_to '<i class="bx bx-list-ul"></i> <span>My Complaints</span>'.html_safe, normal_user_complaints_path, class: 'menu-item' %>
+                <%= link_to '<i class="bx bx-user"></i> <span>My Profile</span>'.html_safe, normal_user_profile_path, class: 'menu-item' %>
+                <%= link_to '<i class="bx bx-edit"></i> <span>Edit Profile</span>'.html_safe, edit_normal_user_profile_path, class: 'menu-item' %>
+            </nav>
+        </aside>
+
+        <!-- Content area -->
+        <section class="content-area">
+            <header class="content-header">
+                <h1>Welcome, <%= @user.email %></h1>
+                <p>Your one-stop solution for managing civic complaints efficiently.</p>
+            </header>
+            <br>
+            <div class="guide-section">
+                <h2>How to Submit a Complaint</h2>
+                <ul class="steps">
+                    <li><pre>    Select "Create Complaint" on the sidebar.</pre></li>
+                    <li><pre>    Choose the type of complaint.</pre></li>
+                    <li><pre>    Provide a detailed description.</pre></li>
+                    <li><pre>    Upload any supporting images.</pre></li>
+                    <li><pre>    Provide the relevant location details.</pre></li>
+                    <li><pre>    Submit your complaint for processing.</pre></li>
+                </ul>
+            </div>
+        </section>
+    </main>

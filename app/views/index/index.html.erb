@@ -1,0 +1,23 @@
+<div class="middle">
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <h1>Welcome to the Civic Complaint Portal</h1>
+        <p>Your one-stop solution for managing and addressing civic complaints effectively. Whether you’re an administrator or an authority, log in to start managing complaints efficiently.</p>
+    </section>
+
+    <!-- Login Options -->
+    <section class="login-options">
+        <h2>Login as:</h2>
+        <div class="buttons-container">
+            <%= link_to 'Login as Admin', new_normal_user_session_path, class: 'btn btn-admin auth-button' %>
+            <%= link_to 'Login as Authority', new_authority_session_path, class: 'btn btn-authority auth-button' %>
+        </div>
+    </section>
+
+    <!-- Additional Information Section -->
+    <section class="info-section">
+        <h2>About the Civic Complaint Portal</h2>
+        <p>This platform provides a streamlined way for city administrators and authorities to handle public complaints, track issue status, and ensure a better-managed city environment.</p>
+    </section>
+</div>

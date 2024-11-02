@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CivicComplaints</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <header class="navbar">
+        <h2 class="navbar-title">Civic Complaint</h2>
+        
+        <% if user_signed_in? %>
+          <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn' %>
+        <% end %>
+    </header>
+
+      <%= yield %>
+
+    <footer class="footer">
+      <p>&copy; <%= Time.current.year %> Civic Complaints. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

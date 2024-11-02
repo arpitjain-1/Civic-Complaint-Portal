@@ -1,0 +1,63 @@
+ <main class="dashboard-container">
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <%= link_to '<i class="bx bx-home-circle"></i> <span>Home</span>'.html_safe, root_path, class: 'menu-item' %>
+                <%= link_to '<i class="bx bx-plus-circle"></i> <span>Create Complaint</span>'.html_safe, new_complaint_path, class: 'menu-item active' %>
+                <%= link_to '<i class="bx bx-list-ul"></i> <span>My Complaints</span>'.html_safe, normal_user_complaints_path, class: 'menu-item' %>
+                <%= link_to '<i class="bx bx-user"></i> <span>My Profile</span>'.html_safe, normal_user_profile_path, class: 'menu-item' %>
+                <%= link_to '<i class="bx bx-edit"></i> <span>Edit Profile</span>'.html_safe, edit_normal_user_profile_path, class: 'menu-item' %>
+            </nav>
+        </aside>
+
+        <!-- Content area -->
+        <section class="content-area">
+            <header class="content-header">
+                <h1 class="heading">Complain Form</h1>
+            </header>
+
+            <div class="forms">
+                <%= form_with(model: @complaint, local: true, id: 'complaintForm') do |form| %>
+                    <% if @complaint.errors.any? %>
+                        <div id="error_explanation">
+                            <h2><%= pluralize(@complaint.errors.count, "error") %> prohibited this complaint from being saved:</h2>
+                            <ul>
+                                <% @complaint.errors.full_messages.each do |message| %>
+                                    <li><%= message %></li>
+                                <% end %>
+                            </ul>
+                        </div>
+                    <% end %>
+
+                    <!-- Complaint Type Field -->
+                    <div class="comtype">
+                        <%= form.label :complaint_type_id, 'Complaint Type', class: 'labels' %>
+                        <%= form.collection_select :complaint_type_id, ComplaintType.all, :id, :name, prompt: "Select Complaint Type" %>
+                    </div>
+
+                    <!-- Description Field -->
+                    <div class="txtarea">
+                        <%= form.label :description, 'Complain Description', class: 'labels' %>
+                        <%= form.text_area :description, rows: 7, required: true %>
+                    </div>
+
+                    <!-- Proof Image Field -->
+                    <div class="file">
+                        <%= form.label :proof_image, 'Upload image as proof', class: 'labels' %>
+                        <%= form.file_field :proof_image, required: true %>
+                    </div>
+
+                    <!-- Submit and Reset Buttons -->
+                    <div class="btnss">
+                        <%= form.submit 'Submit', class: 'submitbtn' %>
+                        <%= form.button 'Reset', type: 'reset', class: 'resetbtn' %>
+                    </div>
+                <% end %>
+
+                <!-- Success Message -->
+                <div id="successMessage" style="display:none;">
+                    Complaint Submitted!
+                </div>
+            </div>
+        </section>
+    </main>

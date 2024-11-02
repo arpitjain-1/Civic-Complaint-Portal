@@ -1,0 +1,51 @@
+<main class="dashboard-container">
+        <!-- Sidebar navigation -->
+    <aside class="sidebar">
+        <nav class="sidebar-menu">
+            <%= link_to '<i class="bx bx-home-circle"></i> <span>Home</span>'.html_safe, root_path, class: 'menu-item' %>
+            <%= link_to '<i class="bx bx-plus-circle"></i> <span>Create Complaint</span>'.html_safe, new_complaint_path, class: 'menu-item' %>
+            <%= link_to '<i class="bx bx-list-ul"></i> <span>My Complaints</span>'.html_safe, normal_user_complaints_path, class: 'menu-item' %>
+            <%= link_to '<i class="bx bx-user"></i> <span>My Profile</span>'.html_safe, normal_user_profile_path, class: 'menu-item' %>
+            <%= link_to '<i class="bx bx-edit"></i> <span>Edit Profile</span>'.html_safe, edit_normal_user_profile_path, class: 'menu-item active' %>
+        </nav>
+    </aside>
+
+    <!-- Content area -->
+    <section class="content-area spcl">
+        <h1 class="user-content-title">Edit Profile</h1>
+
+        <div class="edit-form">
+        <%= form_for @profile, url: update_normal_user_profile_path, method: :patch, html: { class: 'user-profile-form' } do |f| %>
+            <div class="form-group user-form-group">
+                <%= f.label :name, "Name", class: "user-form-label" %>
+                <%= f.text_field :name, class: "form-control user-form-control", placeholder: "Name", required: true %>
+            </div>
+
+            <div class="form-group user-form-group">
+                <%= f.label :email, "Email", class: "user-form-label" %>
+                <%= f.email_field :email, class: "form-control user-form-control", placeholder: "Your Email", required: true %>
+            </div>
+
+            <div class="form-group user-form-group">
+                <%= f.label :current_password, "Current Password (required to update)", class: "user-form-label" %>
+                <%= f.password_field :current_password, class: "form-control user-form-control", placeholder: "Current Password", required: true %>
+            </div>
+
+            <div class="form-group user-form-group">
+                <%= f.label :password, "New Password", class: "user-form-label" %>
+                <%= f.password_field :password, class: "form-control user-form-control", placeholder: "New Password" %>
+            </div>
+
+            <div class="form-group user-form-group">
+                <%= f.label :password_confirmation, "Confirm New Password", class: "user-form-label" %>
+                <%= f.password_field :password_confirmation, class: "form-control user-form-control", placeholder: "Confirm New Password" %>
+            </div>
+
+            <div class="user-form-actions mt-3">
+                <%= f.submit "Update Profile", class: "frm-btn btn-success user-submit-btn" %>
+                <%= link_to 'Cancel', normal_user_profile_path, class: "frm-btn btn-secondary user-cancel-btn" %>
+            </div>
+        <% end %>
+        </div>
+    </section>
+</main>

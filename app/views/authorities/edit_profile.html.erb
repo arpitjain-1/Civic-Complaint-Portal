@@ -1,0 +1,54 @@
+<main class="dashboard-container">
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <%= link_to 'authority_dashboard_path', class: 'menu-item' do %>
+                    <i class='bx bx-list-ul'></i> <span>Home</span>
+                <% end %>
+                <%= link_to complaints_path, class: 'menu-item' do %>
+                    <i class='bx bx-list-ul'></i> <span>All Complaints</span>
+                <% end %>
+                <%= link_to pending_complaints_path, class: 'menu-item' do %>
+                    <i class='bx bx-time-five'></i> <span>Pending Complaints</span>
+                <% end %>
+                <%= link_to authority_profile_path, class: 'menu-item' do %>
+                    <i class='bx bx-user'></i> <span>Profile</span>
+                <% end %>
+                <%= link_to edit_authority_profile_path, class: 'menu-item active' do %>
+                    <i class='bx bx-edit active'></i> <span>Edit Profile</span>
+                <% end %>
+            </nav>
+        </aside>
+        <section class="content-area spcl">
+            <h1 class="user-content-title">Edit Profile</h1>
+            <div class="edit-form">
+                <%= form_for(@authority, url: edit_authority_profile_path, html: { method: :patch }) do |f| %>
+                    <div class="form-group">
+                        <%= f.label :name, "Full Name" %>
+                        <%= f.text_field :name, class: "form-control", placeholder: "Enter your full name" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= f.label :email, "Email Address" %>
+                        <%= f.email_field :email, class: "form-control", placeholder: "Enter your email" %>
+                    </div>
+
+                    <%# Add additional fields relevant to authority users, if necessary %>
+
+                    <div class="form-group">
+                        <%= f.label :password, "New Password" %>
+                        <%= f.password_field :password, class: "form-control", placeholder: "Leave blank if you don't want to change it" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= f.label :password_confirmation, "Confirm New Password" %>
+                        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm new password" %>
+                    </div>
+
+                    <div class="form-actions">
+                        <%= f.submit "Update Profile", class: "btn btn-primary" %>
+                    </div>
+                <% end %>
+            </div>
+        </section>
+</main>

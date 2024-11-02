@@ -1,0 +1,957 @@
+/* Global Reset for consistent styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: linear-gradient(135deg, #c4103d, #212121);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Background */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('background.jpg') no-repeat center center/cover;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+/* Main container */
+.container {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  height: calc(100%-70px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Left Side Content */
+.content {
+  flex: 1;
+  padding: 40px;
+  color: #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-sci h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.text-sci2 h2 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.social-icons a i {
+  font-size: 30px;
+  color: #e4e4e4;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover i {
+  transform: scale(1.2);
+}
+
+/* Right Side Form */
+.logreg-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+}
+
+.logreg-box .form-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+}
+
+.form-box h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Input Fields */
+.input-box {
+  position: relative;
+  width: 100%;
+  margin: 25px 0;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-bottom: 2px solid #e4e4e4;
+  color: #e4e4e4;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.input-box input:focus {
+  border-color: #c4103d;
+}
+
+.input-box label {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  color: #aaa;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.input-box input:focus ~ label,
+.input-box input:not(:placeholder-shown) ~ label {
+  top: -18px;
+  font-size: 12px;
+  color: #c4103d;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  font-size: 20px;
+  color: #e4e4e4;
+}
+
+/* Remember Me and Forgot Password */
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  color: #e4e4e4;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.remember-forgot label input {
+  margin-right: 5px;
+}
+
+.remember-forgot a {
+  color: #e4e4e4;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+  color: #c4103d;
+}
+
+/* Button Styling */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #c4103d;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: #a30b30;
+  transform: translateY(-3px);
+}
+
+/* Login and Register Link */
+.login-register {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 25px;
+  color: #e4e4e4;
+}
+
+.login-register a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-register a:hover {
+  text-decoration: underline;
+  color: #c4103d;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #2C2C2C;
+  padding: 15px 30px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.contact-btn {
+  background-color: #FF2E63;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.contact-btn:hover {
+  background-color: #E02659;
+}
+
+/* Welcome Section Styling */
+.welcome-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  margin: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  color: #2C2C2C;
+  margin-bottom: 10px;
+}
+
+.welcome-section p {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+}
+
+/* Login Options Section */
+.login-options {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.login-options h2 {
+  font-size: 1.8rem;
+  color: #2C2C2C;
+  margin-bottom: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-admin {
+  background-color: #FF2E63;
+}
+
+.btn-admin:hover {
+  background-color: #E02659;
+}
+
+.btn-authority {
+  background-color: #2C2C2C;
+}
+
+.btn-authority:hover {
+  background-color: #4D4D4D;
+}
+
+/* Info Section Styling */
+.info-section {
+  margin: 30px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.info-section h2 {
+  font-size: 2rem;
+  color: #2C2C2C;
+  margin-bottom: 15px;
+}
+
+.info-section p {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #2C2C2C;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+}
+
+.background{
+  height: 550px;
+}
+
+.dashboard-container {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 70px); /* Minus navbar height */
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 18%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  justify-content: flex-start;
+  color: #fff;
+}
+
+.sidebar-menu {
+  margin-top: 50px; /* Space from the top of the sidebar */
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  width: 95%;
+  margin: 0 auto 20px auto;
+  font-size: 18px;
+  text-decoration: none;
+  color: #e4e4e4;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: all 0.8s ease-out;
+}
+
+.menu-item i {
+  margin-right: 15px;
+  font-size: 24px;
+}
+
+.menu-item:hover {
+  background-color: #c4103d;
+}
+
+.menu-item.active {
+  background-color: #c4103d;
+}
+
+/* Content area */
+.content-area {
+  flex-grow: 1;
+  padding: 50px;
+  color: #e4e4e4;
+  overflow-y: auto;
+}
+
+.content-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.content-header p {
+  font-size: 18px;
+  color: #aaa;
+}
+
+.guide-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.steps {
+  list-style: circle;
+  margin-left: 20px;
+}
+
+.steps li {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #e4e4e4;
+}
+
+/* Footer styles */
+.dashboard-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #e4e4e4;
+  font-size: 16px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.middle{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  column-gap: 50px;
+  height: calc(100% - 70px);
+}
+
+.login-options{
+  margin: 20px 0;
+}
+
+.auth-button{
+  width: 10%;
+  text-decoration: none;
+}
+
+.base{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - 70px); /* Minus navbar height */
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  margin-right: 15px;
+}
+
+.stat-card:last-child {
+  margin-right: 0;
+}
+
+.stat-card h3 {
+  font-size: 1.2rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 2rem;
+  color: #c4103d;
+}
+
+recent-complaints {
+  margin-bottom: 30px;
+}
+
+.recent-complaints h2 {
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #000;
+  color: #000;
+}
+
+thead th {
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+}
+
+tbody td {
+  padding: 10px;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.btn-primary {
+  background-color: #c4103d;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #c4103d;
+}
+
+/* Quick Actions Section */
+.quick-actions {
+  text-align: center;
+}
+
+.quick-actions h2 {
+  margin-bottom: 15px;
+}
+
+.quick-actions .btn {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: #95A5A6;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: #7F8C8D;
+}
+
+.heading {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Label styles */
+.labels {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+/* Select dropdown */
+.comtype select {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.comtype select:hover,
+.comtype select:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Textarea styling */
+.txtarea textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  resize: vertical;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.txtarea textarea:hover,
+.txtarea textarea:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* File input styling */
+.file input[type="file"] {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 10px;
+  outline: none;
+}
+
+/* Button styling */
+.btnss {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.submitbtn, .resetbtn {
+  width: 48%;
+  padding: 12px;
+  background-color: #c4103d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.submitbtn:hover,
+.resetbtn:hover {
+  background-color: #a30b30;
+}
+
+/* Success message styling */
+#successMessage {
+  color: #00FF00;
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Adjust spacing around form elements */
+.forms {
+  margin: 20px 0;
+}
+
+.comtype, .txtarea, .file {
+  margin-bottom: 20px;
+}
+
+.table .description-cell {
+  max-width: 250px; /* Set a max width to control the wrapping */
+  word-wrap: break-word;
+  white-space: normal; /* Ensures wrapping within the cell */
+}
+
+/* Base container styling */
+.complaints-base {
+  font-family: Arial, sans-serif;
+  color: #2d3436;
+  padding: 20px;
+}
+
+/* Heading styling */
+.complaints-heading {
+  font-size: 2em;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Table styling */
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f4f6f7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Table Header styling */
+.complaints-table th {
+  background-color: #373434;
+  color: #ffffff;
+  text-align: left;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Table Cell styling */
+.complaints-table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Description cell for word wrapping */
+.complaints-description-cell {
+  max-width: 250px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* Row hover effect */
+.complaints-table tbody tr:hover {
+  background-color: #ecf0f1;
+}
+
+/* No complaints message styling */
+.complaints-no-complaints-message {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+/* Action container for submit button */
+.complaints-action-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Button styling */
+.complaints-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/* Primary button */
+.complaints-btn-primary {
+  background-color: #2980b9;
+  color: #ffffff;
+  border: none;
+}
+
+.complaints-btn-primary:hover {
+  background-color: #3498db;
+}
+
+/* View button */
+.complaints-btn-view {
+  background-color: #2ecc71;
+  color: #ffffff;
+}
+
+.complaints-btn-view:hover {
+  background-color: #27ae60;
+}
+
+/* Edit button */
+.complaints-btn-edit {
+  background-color: #f39c12;
+  color: #ffffff;
+}
+
+.complaints-btn-edit:hover {
+  background-color: #e67e22;
+}
+
+/* Styling for action buttons container */
+.complaints-action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 20px;
+  width: 40%;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+.card-body p strong {
+  color: #000000;
+}
+
+/* Buttons */
+.mt-3 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  margin: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #c4103d;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #d33b61;
+}
+
+.btn-secondary {
+  background-color: #95A5A6;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #7F8C8D;
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  .card {
+      padding: 15px;
+  }
+
+  .btn {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #e4e4e4; /* Light color for labels */
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2); /* Input background */
+  color: #e4e4e4; /* Light text color */
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Input focus effect */
+input:focus {
+  background: rgba(255, 255, 255, 0.3); /* Lighter background on focus */
+  outline: none; /* Remove outline */
+}
+
+/* Button styling */
+.frm-btn {
+  width: 54%; /* Slightly less than half width for two buttons */
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px; /* Spacing above buttons */
+}
+
+.btn-success {
+  background-color: #c4103d; /* Main action button color */
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #a30b30; /* Darker shade on hover */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+.btn-secondary {
+  background-color: #555; /* Secondary button color */
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: #333; /* Darker shade on hover */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+.spcl{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.edit-form{
+  width: 40%;
+}
+
+.user-form-actions{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
